@@ -52,16 +52,24 @@ console.log(returnValueMap)
 
 
 //1. Get array of all names
-let returnValue = characters.forEach((c)=>{
-    console.log (c.name)
+let name = characters.map((c)=>{
+  return {name:c.name}
+})
+
+console.log(name)
 //2. Get array of all heights
-let returnValue = characters.forEach((c)=>{
-    console.log (c.height)
+let height = characters.map((c)=>{
+  return {height:c.height}
 })
+console.log(height)
+
+
 //3. Get array of objects with just name and height properties
-let returnValue = characters.forEach((c)=>{
-    console.log (c.height, c.name)
+let NH = characters.map((c)=>{
+  return {height:c.height, name:c.name}
 })
+console.log(NH)
+
 //4. Get array of all first names
 let returnValue = characters.forEach((c)=>{
     console.log (c.name.split(' ').slice(0, -1))
@@ -153,24 +161,61 @@ console.log(allFemale)
 //***SORT***
 
 //1. Sort by mass
-characters.sort ((a,b)=> {
-return a.mass -b.})
-//2. Sort by height
-characters.sort ((a,b)=>{
-return a.height -b.height
+characters.sort((a,b)=>{
+  if(a.mass > b.mass){
+      return 1
+  }
+  if(a.mass < b.mass){
+      return -1
+  }
+  return 0
 })
+
 console.log(characters)
+
+//2. Sort by height
+characters.sort((a,b)=>{
+  if(a.height > b.height){
+      return 1
+  }
+  if(a.height < b.height){
+      return -1
+  }
+  return 0
+})
+
+console.log(characters)
+
 //3. Sort by name
 characters.sort((a,b)=>{
-if(a.name < -b.name){
-return}
+  if(a.name > b.name){
+      return 1
+  }
+  if(a.name < b.name){
+      return -1
+  }
+  return 0
 })
+
+console.log(characters)
 //4. Sort by gender
-characters.sort ((a,b)=>{
-return a.gender -b.gender
+characters.sort((a,b)=>{
+  if(a.gender > b.gender){
+      return 1
+  }
+  if(a.gender < b.gender){
+      return -1
+  }
+  return 0
 })
+
+console.log(characters)
+
+
 //***EVERY***
 //1. Does every character have blue eyes?
+
+
 //2. Does every character have mass more than 40?
 //3. Is every character shorter than 200?
 //4. Is every character male?
